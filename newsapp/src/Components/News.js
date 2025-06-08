@@ -7,11 +7,13 @@ export default class News extends Component {
   
  
 static defaultProps = {
-  category : "general" 
+  category : "general" ,
+  userCountry: "us" // Default country for non-authenticated users or initial load
 }
 
 static propTypes = {
   category: PropTypes.string,
+  userCountry: PropTypes.string,
 }
 
 constructor (props){
@@ -26,8 +28,9 @@ constructor (props){
   
 async updateNews() {
   this.setState({ loading: true });
-  const { category } = this.props;
-  let apis = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=2083bff861ca4e48b0026d1ebe6f5f9d&page=${this.state.page}` ;
+  const { category, userCountry } = this.props; // Get both category and userCountry
+  let countryCode = userCountry ? userCountry : "us"; // Use userCountry if available, else default to 'us'
+  let apis = `https://newsapi.org/v2/top-headlines?country=${countryCode}&category=${category}&apiKey=2083bff861ca4e48b0026d1ebe6f5f9d&page=${this.state.page}` ;
   let dataa = await fetch(apis) ;
   let parseddata = await dataa.json() ;
   this.setState({
@@ -41,9 +44,9 @@ async componentDidMount(){
   this.updateNews();
 }
 
-// Add componentDidUpdate to fetch news when category changes
+// Add componentDidUpdate to fetch news when category or userCountry changes
 async componentDidUpdate(prevProps) {
-  if (this.props.category !== prevProps.category) {
+  if (this.props.category !== prevProps.category || this.props.userCountry !== prevProps.userCountry) {
     this.setState({ page: 1 }, () => this.updateNews());
   }
 }
