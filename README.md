@@ -17,11 +17,7 @@ A full-stack **News Aggregator** built with **React (frontend)** and **Node.js/E
 - Search functionality for headlines.
 - Responsive and clean UI.
 
-### 🛠️ CRUD Operations
-- Users can **save** articles to a personal reading list.
-- **Update** notes/comments on saved articles.
-- **Delete** saved articles.
-- View saved articles in a dashboard.
+
 
 ---
 
