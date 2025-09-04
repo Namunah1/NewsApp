@@ -9,7 +9,7 @@ A full-stack **News Aggregator** built with **React (frontend)** and **Node.js/E
 ### 👤 User Authentication
 - Register with **name**, **email**, **password**, and **country**.
 - On login, user is shown only **country-specific** news from **all categories**.
-- JWT-based authentication for secure access.
+- Session-based authentication for secure access.
 
 ### 📰 News Functionality
 - View categorized news: **Business**, **Technology**, **Health**, etc.
