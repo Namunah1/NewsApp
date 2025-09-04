@@ -25,7 +25,7 @@ A full-stack **News Aggregator** built with **React (frontend)** and **Node.js/E
 
 | Frontend  | Backend     | Database   | Other Tools |
 |-----------|-------------|------------|-------------|
-| React     | Node.js     | MongoDB    | JWT, Axios  |
+| React     | Node.js     | MongoDB    |  Axios  |
 | Tailwind  | Express.js  | Mongoose   | NewsAPI.org |
 
 ---
